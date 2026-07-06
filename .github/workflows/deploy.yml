@@ -1,0 +1,21 @@
+name: Build Docker Image
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Build Docker image
+        run: docker build -t myapp:v1 .
+
+      - name: Test container runs
+        run: |
+          docker run -d -p 8080:80 myapp:v1
+          sleep 2
+          curl http://localhost:8080
