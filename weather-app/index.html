@@ -117,7 +117,7 @@
       document.getElementById('weather').style.display = 'none';
 
       try {
-        const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric&lang=vi`);
+        const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${c79135343b5d41ad2e164a9253406ffa}&units=metric&lang=vi`);
         const data = await res.json();
         if (data.cod !== 200) throw new Error();
 
